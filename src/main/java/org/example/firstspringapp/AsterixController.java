@@ -54,11 +54,10 @@ public class AsterixController {
     public void updateCharacter(@RequestBody AsterixCharacter character){
         if(characterRepo.existsById(character.id()))
             characterRepo.save(character);
-        else{}
     }
 
     @DeleteMapping
-    public void updateCharacter(@RequestParam String id){
+    public void deleteCharacter(@RequestParam String id){
         if(characterRepo.existsById(id))
             characterRepo.delete(characterRepo.findById(id).orElseThrow());
     }

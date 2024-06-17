@@ -43,7 +43,7 @@ public class AsterixService {
     }
 
     public void addCharacter(AsterixCharacterWithoutID character){
-        AsterixCharacter asterixCharacter = ChangeModels.changeToID(character);
+        AsterixCharacter asterixCharacter = ChangeModels.changeToCharacterWithId(character);
         characterRepo.save(asterixCharacter);
     }
 
@@ -52,10 +52,9 @@ public class AsterixService {
             AsterixCharacter asterixCharacter = characterRepo.findById(id).orElseThrow().withName(character.name()).withAge(character.age()).withProfession(character.profession());
             characterRepo.save(asterixCharacter);
         }
-
     }
 
-    public void deleteCharacter(@RequestParam String id){
+    public void deleteCharacter(String id){
         if(characterRepo.existsById(id))
             characterRepo.delete(characterRepo.findById(id).orElseThrow());
     }

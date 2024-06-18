@@ -80,7 +80,7 @@ class AsterixControllerTest {
     }
 
     @Test
-    void getCharacterlistByName() throws Exception {
+    void getCharacterlistByName_shouldReturnCharacterlistWithNamePeter_whenCalledWithNamePeter() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/asterix/characters/name").param("name", "Peter"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(
@@ -103,7 +103,7 @@ class AsterixControllerTest {
     }
 
     @Test
-    void getCharacterlistByAge() throws Exception {
+    void getCharacterlistByAge_shouldReturnCharacterlistWithAge20_whenCalledWithAge20() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/asterix/characters/age").param("age", String.valueOf(20)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(
@@ -126,8 +126,8 @@ class AsterixControllerTest {
     }
 
     @Test
-    void getCharacterlistByProfession() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/asterix/characters/profession").param("profession", "1"))
+    void getCharacterlistByProfession_shouldReturnCharacterlistWithProfessionMagier_whenCalledWithProfessionMagier() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/asterix/characters/profession").param("profession", "Magier"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(
                         """

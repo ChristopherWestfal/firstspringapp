@@ -48,7 +48,7 @@ class AsterixControllerTest {
                             "age": 20,
                             "profession": "Magier"
                           },
-          {
+                          {
                             "id": "2",
                             "name": "Peter",
                             "age": 35,

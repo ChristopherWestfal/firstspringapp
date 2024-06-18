@@ -52,7 +52,7 @@ class AsterixControllerTest {
                           },
                          {
                             "id": "3",
-                            "name": "Jügen",
+                            "name": "Jürgen",
                             "age": 20,
                             "profession": "Hausmeister"
                           },

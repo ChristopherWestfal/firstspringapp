@@ -15,7 +15,6 @@ public class ChangeModels {
     }
 
     public static AsterixCharacterWithoutID changeToCharacterWithoutId(AsterixCharacter character) {
-
         return new AsterixCharacterWithoutID( character.name(), character.age(), character.profession());
     }
 }

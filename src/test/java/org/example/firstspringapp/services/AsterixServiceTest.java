@@ -3,6 +3,7 @@ package org.example.firstspringapp.services;
 import org.example.firstspringapp.model.AsterixCharacter;
 import org.example.firstspringapp.model.AsterixCharacterWithoutID;
 import org.example.firstspringapp.repository.CharacterRepo;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.Pageable;
 
@@ -15,16 +16,14 @@ import static org.mockito.Mockito.*;
 
 class AsterixServiceTest {
 
-    private final CharacterRepo mockRepo = mock(CharacterRepo.class);
-    private final IdService mockIdService = mock(IdService.class);
+    private  CharacterRepo mockRepo;
+    private  IdService mockIdService;
 
+    private List<AsterixCharacter> asterixCharacterList;
 
-
-    @Test
-    void getAllCharacters_shouldReturnAListOfAllCharacters_whenCalled() {
-        //GIVEN
-        AsterixService asterixService = new AsterixService(mockRepo, mockIdService);
-        List<AsterixCharacter> expected = List.of(
+    @BeforeEach
+    void setUp(){
+        asterixCharacterList = List.of(
                 new AsterixCharacter("1", "Asterix", 35, "Krieger"),
                 new AsterixCharacter("2", "Obelix", 35, "Lieferant"),
                 new AsterixCharacter("3", "Miraculix", 60, "Druide"),
@@ -36,6 +35,19 @@ class AsterixServiceTest {
                 new AsterixCharacter("9", "Automatix", 35, "Schmied"),
                 new AsterixCharacter("10", "Grockelix", 35, "Fischer")
         );
+
+        mockRepo = mock(CharacterRepo.class);
+        mockIdService = mock(IdService.class);
+    }
+
+
+
+    @Test
+    void getAllCharacters_shouldReturnAListOfAllCharacters_whenCalled() {
+        //GIVEN
+        AsterixService asterixService = new AsterixService(mockRepo, mockIdService);
+        List<AsterixCharacter> expected = asterixCharacterList;
+
         when(mockRepo.findAll()).thenReturn(expected);
         //WHEN
         List<AsterixCharacter> actual = asterixService.getAllCharacters();
@@ -75,6 +87,8 @@ class AsterixServiceTest {
     @Test
     void getCharacterById () {
         //Given
+        AsterixService asterixService = new AsterixService(mockRepo, mockIdService);
+        String id = "1";
 
         //When
 

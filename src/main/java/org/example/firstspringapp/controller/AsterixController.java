@@ -20,6 +20,11 @@ public class AsterixController {
         return asterixService.getAllCharacters();
     }
 
+    @GetMapping("id")
+    public AsterixCharacterWithoutID getCharacterById(@RequestParam String id){
+        return asterixService.getCharacterById(id);
+    }
+
     @GetMapping("/name")
     public List<AsterixCharacter> getCharacterlistByName(@RequestParam String name){
         return asterixService.getCharacterlistByName(name);

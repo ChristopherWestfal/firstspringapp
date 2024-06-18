@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -57,5 +58,10 @@ public class AsterixService {
     public void deleteCharacter(String id){
         if(characterRepo.existsById(id))
             characterRepo.delete(characterRepo.findById(id).orElseThrow());
+    }
+
+    public AsterixCharacterWithoutID getCharacterById(String id) {
+        AsterixCharacter temp = characterRepo.findById(id).orElseThrow();
+        return ChangeModels.changeToCharacterWithoutId(temp);
     }
 }

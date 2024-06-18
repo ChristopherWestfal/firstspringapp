@@ -25,14 +25,10 @@ class AsterixControllerTest {
 
     @BeforeEach
     void setUp(){
-        AsterixCharacter asterixCharacter = new AsterixCharacter("1", "Hans", 20, "Magier");
-        AsterixCharacter asterixCharacter2 = new AsterixCharacter("2", "Peter", 35, "Krieger");
-        AsterixCharacter asterixCharacter3 = new AsterixCharacter("3", "Jürgen", 20, "Hausmeister");
-        AsterixCharacter asterixCharacter4 = new AsterixCharacter("4", "Peter", 66, "Magier");
-        characterRepo.save(asterixCharacter);
-        characterRepo.save(asterixCharacter2);
-        characterRepo.save(asterixCharacter3);
-        characterRepo.save(asterixCharacter4);
+        characterRepo.save(new AsterixCharacter("1", "Hans", 20, "Magier"));
+        characterRepo.save(new AsterixCharacter("2", "Peter", 35, "Krieger"));
+        characterRepo.save(new AsterixCharacter("3", "Jürgen", 20, "Hausmeister"));
+        characterRepo.save(new AsterixCharacter("4", "Peter", 66, "Magier"));
     }
 
     @Test
